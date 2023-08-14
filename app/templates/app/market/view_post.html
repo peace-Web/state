@@ -1,0 +1,79 @@
+{% extends "app/home.html" %}
+
+{% block title %}
+City | 
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <div style="width: fit-content;" id="carouselExampleFade" class="carousel slide carousel-fade">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img  src="{{post.image1.url}}" class="d-block w-100 description-img rounded" alt="Not found!">
+                  </div>
+                  <div class="carousel-item">
+                    <img  src="{{post.image2.url}}" class="d-block w-100 description-img rounded" alt="Not found!">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{post.image3.url}}" class="d-block w-100 description-img rounded" alt="Not found!">
+                  </div>
+                  <div class="carousel-item">
+                    <img  src="{{post.image4.url}}" class="d-block w-100 description-img rounded" alt="Not found!">
+                  </div>
+                  <div class="carousel-item">
+                    <img  src="{{post.image5.url}}" class="d-block w-100 description-img rounded" alt="Not found!">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="post_info p-3 text-center lh-4">
+               <p class="description text-secondary fs-6" >
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>What the owner tells you:</h5>
+                  {% if post.is_fork %}
+                    <span class="fork-span m-3">exclusivité</span>
+                    {% endif %}
+                
+                </div>
+                <p style="width: fit-content;">{{post.description}}</p>
+               </p>
+               <h3 class="facilities border-bottom border-2 pb-2">What Place Offers:</h3>
+               <div class="d-flex justify-content-between align-items-center">
+                <li class="list-group-item "> <i class="fa-solid fa-check text-primary"></i> Address : {{post.address}}</li>
+               <ul class="list-group list-group-flush">
+                
+                <li class="list-group-item "> <i class="fa-solid fa-check text-primary"></i> Size : {{post.size}} m²</li>
+                <li class="list-group-item "><i class="fa-solid fa-check text-primary"></i> Rooms : {{post.rooms}}</li>
+                {% if post.kitchen %}
+                <li class="list-group-item "><i class="fa-solid fa-check text-primary"></i> Kitchen : {{post.kitchen}} </li>
+                    {% endif %}
+
+                {% if post.bathroom  %}
+                <li class="list-group-item "><i class="fa-solid fa-check text-primary"></i> Bathroom : {{post.bathroom }} </li>
+                    {% endif %}
+
+                {% if post.wifi %}
+                <li class="list-group-item "><i class="fa-solid fa-check text-primary"></i> Wifi: Yes</li>
+                    {% endif %}
+              </ul>
+               <span class="">
+                <span class="text-primary fw-bold fs-5">{{post.price}} DH / {{post.period}}</span>
+               </span>
+               </div>
+               <a href="{% url 'contactowner' post.id %}" class="btn btn-success rounded">Contact The Owner</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

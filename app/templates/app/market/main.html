@@ -1,0 +1,86 @@
+{% extends 'app/home.html' %}
+
+{% load static %}
+
+{% block title %}
+Market | 
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="post-container">
+        {% if request.user.is_authenticated %}
+        <div class="container">
+          <form id="filter-search"  action="">
+            <div class="row mb-3 mt-3 ">
+              {% for item in filter.form%}
+            <div class="col-sm-6 col-lg-3">
+              <p class="mb-0">{{item.label}} :</p>
+               <p style="width: 200px;" class="m-0 ">{{item}}</p>
+            </div>
+            {% endfor %}
+            <span><button class="mb-2 btn btn-primary rounded" type="submit">Search</button></span>
+            </div>
+            
+          </form>
+          <!-- <button id="side-up">Slide Up</button> -->
+        </div>
+        <div class="row">
+        {% for x in apts %}
+        
+          <div class="col-md-6 col-lg-3">
+            <div class="post-group " >
+              <div class="d-flex justify-content-between align-items-center">
+                
+              <span class="price ">{{x.price}} dh / <span class="fs-lg">{{x.period}}</span></span>
+              {% if x.is_fork %}
+                    <span class="fork-span">exclusivité</span>
+                    {% endif %}
+              </div>
+              <img src="{{x.image1.url}}" class="d-block w-100  rounded gallery-item" style="height: 200px; width:200px" alt="image location">
+                    
+              <h3 class="post-title text-black-50">{{x.city}}</h3>
+              <div class="post-info">
+                  
+                  <span class="owner">
+                      {% if x.renter.image %}
+                      <img width="30px" class="rounded-circle" src="{{x.renter.image.url}}" alt="">
+                      {% else %}
+                      <img width="30px" class="rounded-circle" src="{% static 'images/owner.jpg' %}" alt="">
+                      {% endif %}
+                      <span >{{x.user.username}}</span></span>
+                  
+              </div>
+              <a href="{% url 'view_post' x.id %}" class="see-more btn btn-primary rounded text-center mt-2 p-1">see more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          </div>
+        
+        {% endfor %}
+      </div>
+        {% else %}
+        <h3>No results found!</h3>
+        {% endif %}
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img width="100%" class="modal-lg modal-img" src="" alt="">
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+
+</div>
+{% endblock content %}

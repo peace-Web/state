@@ -1,0 +1,74 @@
+{% extends 'app/home.html' %}
+{% load static %}
+{% block title %}
+Me | 
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-lg-4 col-sm-12">
+      <div class="card" style="width: 16rem;">
+        <div class="card-body text-center">
+
+            
+            {% if renter.image %}
+            <img class="card-img-top rounded-pill" src="{{renter.image.url}}" alt="Card image cap">
+            
+            {% else %}
+            <img class="card-img-top rounded-pill" src="{% static 'images/owner.jpg' %}" alt="Card image cap">
+            {% endif %}
+           
+          </div>
+                  
+        
+      </div>
+      {% if renter %}
+          <div class="persolnal-info mt-2">
+            <p><span class="fw-bold">Phone </span>:+212_ <span>{{renter.phone}}</span></p>
+            <p><span class="fw-bold">Address</span>: <span>{{renter.address}}</span></p>
+            <p><span class="fw-bold">Email</span> : <span>{{renter.user.email}}</span></p>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-lg-8 col-sm-12">
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- <div class="form-group row m-2">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+          </div>
+        </div>
+        <div class="form-group row m-2">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Address">
+          </div>
+        </div>
+        <div class="form-group row m-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Phone</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control"  placeholder="Phone">
+            </div>
+          </div>
+          <div class="form-group row m-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Picture</label>
+            <div class="col-sm-10 ">
+                <input type="file" class="form-control"  placeholder="Profile picture">
+            </div>
+          </div> -->
+          {{form.as_p}}
+            <div class="text-center">
+              <input class="btn btn-primary rounded mt-2" type="submit"   value="save changes">
+            </div>
+
+      </form>
+    </div>
+  </div>
+    
+
+      
+</div>
+
+{% endblock content %}

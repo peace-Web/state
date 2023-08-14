@@ -1,0 +1,280 @@
+/* Globul rules */
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+/* small */
+@media (min-width:768px){
+    .container{
+        width: 750px;
+    }
+}
+
+/* medium */
+@media (min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+
+/* large */
+@media (min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+}
+
+body{
+    /* background-color: #eee; */
+    font-family: 'Balsamiq Sans', cursive;
+}
+.logo-title{
+    font-family: 'Dancing Script', cursive;
+}
+/* Globul rules */
+
+/* Header */
+
+.header .container{
+    background-color: orange;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .container .links-bar{
+    position: relative;
+}
+.header .container .link-bar ul:before{
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent blue transparent;
+    position: absolute;
+    right: 3px;
+    top: -20px;
+    
+}
+.header .container .link-bar ul{
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    right: 12px;
+    background-color: blue;
+    min-width: 200px;
+    border-radius: 5px;
+    top: 58px;
+    display: block;
+}
+.header .container .link-bar ul li{
+    padding: 10px;
+    
+}
+
+.header .container .link-bar ul li a{
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+}
+.header .container .link-bar ul li a:hover{
+    padding: 5px;
+    font-weight: bold;
+    color: orange;
+    border-bottom: 1px solid orange;
+}
+/* .header .container .link-bar :hover ul{
+    display: block;
+} */
+/* endHeader */
+
+/* landing page */
+.landing{
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    height: calc(100vh - 59px);
+}
+.overlay{
+    background-color: #00cfff59;
+    width: 100%;
+    height: calc(100vh - 59px);
+    position: absolute;
+}
+.landing .intro-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.landing .intro-text h1{
+    font-size: 34px;
+    font-weight: bold;
+    text-align: center;
+}
+.landing .intro-text p{
+    color: white;
+    line-height: 25px;
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+.join-btn{
+    background-color: blue;
+    padding: 12px 23px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    bottom: -30%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+  
+}
+.join-btn:hover{
+    background-color: orange;
+    padding: 15px 26px;
+}
+@media (max-width:768px){
+    .body{
+        height: 530px;
+    }
+    .landing .intro-text{
+        position: absolute;
+        left: 50%;
+        top: 38%;
+        transform: translate(-50%, -50%);
+        padding: 0px;
+    }
+    .landing, .overlay{
+        max-height: 530px;
+    }
+}
+/* landing page */
+
+/* Register page */
+.register-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container{
+max-width: 300px;
+text-align: center;
+
+}
+.form-container form{
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+}
+.form-container .form-group{
+    margin-bottom: 12px;
+}
+.form-container label{
+    display: block;
+    width: fit-content;
+}
+.form-container h2{
+    text-align: center;
+}
+
+.form-container .form-group input{
+    border-radius: 5px;
+    outline: none;
+    
+}
+.form-container input[type='submit']{
+    background-color: blue;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    transition: .3s;
+}
+.form-container input[type='submit']:hover{
+    padding: 10px 15px;
+    background-color: rgb(16, 16, 218);
+}
+/* end Register page */
+
+/* market page */
+
+.post-container {
+   display: flex;
+   flex-wrap: wrap;
+}
+.post-container .post-group{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(255, 166, 0, 0.356);
+    border-radius: 5px;
+    background-color: #fff;
+    transition: .5s;
+    box-shadow: 4px 4px 7px 0px rgba(0, 0, 0, 0.356);
+    
+}
+.post-container .post-group:hover{
+    background-color: #7777771e;
+}
+@media (min-width:768px){
+    .post-container .post-group{
+        flex-basis: 50%;
+    }
+}
+@media (min-width:1199px){
+    .post-container .post-group{
+        flex-basis: 25%;
+    }
+}
+.post-container .post-group .description{
+    color: #4b4747bf;
+    font-size: 14px;
+    height: 90px;
+    overflow: hidden;
+    line-height: 18px;
+}
+.post-container .post-group img{
+  border-radius: 5px;
+}
+.post-container .post-group .post-title{
+    border-bottom: 2px solid black;
+    margin-bottom: 8px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+}
+.post-container .post-group .post-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.post-container .post-group .post-info .owner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.post-container .post-group .post-info .owner img{
+    border-radius: 50% ;
+    border: 2px solid blue;
+    margin-right: 5px;
+
+}
+.post-container .post-group  .see-more{
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    padding: 10px 12px;
+    float: right;
+    border-radius: 3px;
+    transition: .5s;
+}
+.post-container .post-group  .see-more:hover{
+    background-color: white;
+    color: blue;
+}
+/* end market page */
+

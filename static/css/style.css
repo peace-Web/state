@@ -1,0 +1,77 @@
+body{
+    font-family: 'Balsamiq Sans', cursive;
+}
+.navbar{
+    background-color: orange;
+}
+.logo-title{
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+.logo-title:hover{
+    color: white;
+}
+.navbar .navbar-nav .nav-link{
+    color: white;
+    font-weight: bold;
+}
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link:hover{
+    color: blue;
+}
+.navbar .navbar-toggler{
+    color: white;
+}
+.navbar .navbar-toggler:focus{
+    box-shadow: none;
+}
+/* landing */
+.landing-div{
+    background-color: orange;
+    min-height: calc(100vh - 72px);
+}
+/* landing */
+
+/* Market */
+
+ .post-container .post-group{
+     margin: 10px;
+     padding: 10px;
+     border-radius: 5px;
+     background-color: #fff;
+     transition: .5s;
+     box-shadow: 4px 4px 7px 0px rgba(0, 0, 0, 0.356);
+     
+ }
+ .post-container .post-group:hover{
+     background-color: #7777771e;
+ }
+ .post-container .post-group img{
+    cursor: pointer;
+ }
+ .post-group .price{
+    color: green;
+    padding-top: 15px;
+    padding-bottom: 15px;
+ }
+.fork-span{
+    color: red;
+    background-color: wheat;
+    border-radius: 10px;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.description-img{
+    max-width: 300px;
+    min-width: 300px;
+    height: 350px;
+    
+    
+}
+/* Market */

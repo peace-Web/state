@@ -1,0 +1,65 @@
+{% extends 'app/home.html' %}
+{% load static %}
+{% block title %}
+Dashboard | 
+{% endblock title %}
+
+{% block content %}
+<div class="container text-center">
+  <h2 class="m-3 p-2 border-bottom border-2">My Profile</h2>
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-lg-4 col-sm-12">
+      <div class="card">
+        <div class="card-body m-0">
+          {% if renter.image %}
+          <img class="card-img-top rounded-pill" style="max-width: 80px;" src="{{renter.image.url}}" alt="image profile">
+          {% else %}
+          <img class="card-img-top rounded-pill" src="{% static 'images/owner.jpg' %}" alt="Card image cap">
+          {% endif %} 
+        </div>
+        <div class="card-body m-0">
+          
+           <a class="btn btn-primary rounded" href="{% url 'update_profile' %}">My Profile</a>
+        </div>
+        <div class="card-body m-0">
+          <a class="btn btn-success rounded" href="{% url 'publish' %}">Publish</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 col-sm-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Thumnail</th>
+            <th scope="col">Occupe</th>
+            <th scope="col">Post Status</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in user_posts %}
+          <tr>
+            <td ><img width="80px" class="rounded" src="{{item.image1.url}}" alt=""></td>
+            {% if item.occupied %}
+            <td style="color: red;">Yes</td>
+            {% else %}
+            <td style="color:green;">Not yet</td>
+            {% endif %}
+    
+            <td class="{{item.status}}">{{item.status}}</td>
+            <td><a href="{% url 'editpost' item.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td><a style="color: red;" href="{% url 'deletepost' item.id %}"><i class="fa-solid fa-trash"></i></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+    
+    
+
+
+</div>
+
+{% endblock content %}

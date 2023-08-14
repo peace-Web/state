@@ -1,0 +1,16 @@
+{
+    "builds":[
+        {
+            "src": "stateRent/wsgi.js",
+            "use": "@vercel/python",
+            "config": {"maxLambdaSize": "15mb", "runtime": "python3.9"}
+        }
+    ],
+
+    "rountes": [
+        {
+            "src": "/(.*)",
+            "dest": "stateRent/wsgi.py"
+        }
+    ]
+}

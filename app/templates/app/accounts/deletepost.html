@@ -1,0 +1,16 @@
+{% extends 'app/home.html' %}
+
+{% block title %}
+Delete Post | 
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <p>Are you sure you want to delete your location in <span style="color: blue;">{{post.city}}</span></p>
+    <a href="{% url 'profile' %}">Go back</a>
+    <form action="{% url 'deletepost' post.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Confirm">
+    </form>
+</div>
+{% endblock content %}
