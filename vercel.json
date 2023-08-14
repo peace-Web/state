@@ -7,7 +7,7 @@
         }
     ],
 
-    "rountes": [
+    "routes": [
         {
             "src": "/(.*)",
             "dest": "stateRent/wsgi.py"
